@@ -95,7 +95,7 @@ if ! command -v mysql >/dev/null 2>&1; then
 
     if [[ $choice =~ ^[Yy]$ ]]; then
         # Install MySQL
-        sudo apt-get install mysql-server mysql-client
+        sudo apt-get install mysql-server mysql-client -y
 
         # Start MySQL service
         sudo service mysql start
@@ -151,6 +151,7 @@ echo "#######################################"
 echo
 
 # Download and install WordPress
+sudo apt install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl -y
 sudo mkdir /var/www/html/$sitename
 wget -O latest.tar.gz https://wordpress.org/latest.tar.gz
 tar -xzvf latest.tar.gz -C /var/www/html/$sitename --strip-components=1
